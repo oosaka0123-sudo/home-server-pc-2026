@@ -3,24 +3,242 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>自宅サーバーPC 2026</title>
-  <meta name="description" content="2026年の自宅サーバー向けPCを比較・検討するサイト">
+  <meta name="color-scheme" content="dark">
+  <title>自宅サーバーPC 2026｜24時間運用・中古PC比較</title>
+  <meta name="description" content="24時間365日運用の自宅サーバーPCと、管理・AI作業に使う中古ノートPCを比較。8C16T、32GB、NVMe、4K60Hz、拡張性、価格、保証を重視して選定。">
   <style>
-    body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;max-width:960px;margin:0 auto;padding:48px 20px;line-height:1.7;color:#1f2937}
-    h1{font-size:clamp(2rem,5vw,3.4rem);margin-bottom:.4em}
-    .card{margin-top:32px;padding:24px;border:1px solid #e5e7eb;border-radius:16px;background:#f9fafb}
-    .muted{color:#6b7280}
+    :root{
+      --bg:#07111f;--panel:#0d1b2a;--panel2:#112338;--line:#213a54;
+      --text:#f4f7fb;--muted:#9fb2c8;--cyan:#4dd8ff;--green:#66e3a4;
+      --yellow:#ffd66b;--red:#ff8b8b;--max:1160px
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI","Noto Sans JP",sans-serif;background:
+      radial-gradient(circle at 15% -10%,#163b5a 0,transparent 32%),
+      radial-gradient(circle at 90% 5%,#17344c 0,transparent 28%),var(--bg);color:var(--text);line-height:1.75}
+    a{color:var(--cyan)}
+    .wrap{width:min(var(--max),calc(100% - 36px));margin:auto}
+    header{padding:72px 0 34px}
+    .eyebrow{display:inline-flex;gap:8px;align-items:center;padding:7px 12px;border:1px solid var(--line);
+      border-radius:999px;color:var(--cyan);background:#0a1826;font-size:.82rem;font-weight:700;letter-spacing:.06em}
+    h1{font-size:clamp(2.5rem,7vw,5.8rem);line-height:.98;letter-spacing:-.055em;margin:22px 0 20px;max-width:900px}
+    .lead{max-width:790px;color:#c6d4e3;font-size:clamp(1.02rem,2vw,1.25rem)}
+    .hero-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:34px}
+    .metric,.card,.note,.rank{border:1px solid var(--line);background:linear-gradient(180deg,#0f2033,#0b1725);
+      border-radius:20px}
+    .metric{padding:18px}.metric b{display:block;font-size:1.2rem}.metric span{font-size:.82rem;color:var(--muted)}
+    nav{position:sticky;top:0;z-index:5;border-block:1px solid rgba(63,97,129,.5);background:rgba(7,17,31,.88);
+      backdrop-filter:blur(14px)}
+    nav .wrap{display:flex;gap:20px;overflow:auto;padding:12px 0;white-space:nowrap}
+    nav a{text-decoration:none;color:#c8d6e4;font-size:.9rem}
+    main{padding:34px 0 80px}
+    section{margin:54px 0}
+    h2{font-size:clamp(1.65rem,3.4vw,2.5rem);letter-spacing:-.035em;margin:0 0 8px}
+    h3{margin:.2em 0 .45em;font-size:1.13rem}
+    .sub{color:var(--muted);margin:0 0 24px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .card{padding:22px}
+    .badge{display:inline-block;padding:4px 9px;border-radius:999px;background:#15314a;color:#9ee7ff;font-size:.75rem;font-weight:800}
+    .good{color:var(--green)}.warn{color:var(--yellow)}.risk{color:var(--red)}
+    .rank{padding:22px;position:relative;overflow:hidden}
+    .rank:before{content:attr(data-rank);position:absolute;right:16px;top:-16px;font-size:5rem;font-weight:900;color:#17334b;line-height:1}
+    .rank p{margin:.25rem 0;color:#c6d4e3}.rank strong{font-size:1.25rem}
+    .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:20px;background:#0c1928}
+    table{border-collapse:collapse;width:100%;min-width:840px}
+    th,td{padding:15px 14px;border-bottom:1px solid #1d344b;text-align:left;vertical-align:top}
+    th{font-size:.8rem;color:#a9c0d6;background:#102238;position:sticky;top:0}
+    td{font-size:.92rem}tr:last-child td{border-bottom:0}
+    .stars{letter-spacing:.08em;color:#ffd66b;white-space:nowrap}
+    .note{padding:18px 20px;color:#c7d6e5}
+    .note strong{color:white}
+    .accent{border-left:4px solid var(--cyan)}
+    .warning{border-left:4px solid var(--yellow)}
+    .checklist{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 24px;padding:0;list-style:none}
+    .checklist li{padding:12px 0;border-bottom:1px solid #183047;color:#cfdae6}
+    .checklist li:before{content:"✓";color:var(--green);font-weight:900;margin-right:10px}
+    .refs{font-size:.9rem;color:var(--muted)}
+    footer{border-top:1px solid var(--line);padding:30px 0 48px;color:#8097ae;font-size:.84rem}
+    @media(max-width:820px){.hero-grid,.grid{grid-template-columns:1fr 1fr}.checklist{grid-template-columns:1fr}}
+    @media(max-width:560px){header{padding-top:48px}.hero-grid,.grid{grid-template-columns:1fr}.wrap{width:min(100% - 24px,var(--max))}}
   </style>
 </head>
 <body>
-  <main>
-    <p class="muted">GitHub Pages</p>
-    <h1>自宅サーバーPC 2026</h1>
-    <p>24時間365日運用を前提に、自宅サーバー向けPCを比較・検討するサイトです。</p>
-    <section class="card">
-      <h2>準備中</h2>
-      <p>候補PC、性能、消費電力、価格、4K60Hz対応などを順次整理します。</p>
-    </section>
-  </main>
+<header class="wrap">
+  <span class="eyebrow">HOME SERVER PC / 2026</span>
+  <h1>壊れにくく、増やせて、無駄に高くない。</h1>
+  <p class="lead">24時間365日稼働の自宅サーバー本命と、持ち運び・管理・AI作業に使う中古ノートを分けて比較。初期価格だけでなく、メモリ拡張性・故障リスク・保証・4K60Hz出力まで見る。</p>
+  <div class="hero-grid">
+    <div class="metric"><b>8C / 16T+</b><span>サーバー本命のCPU基準</span></div>
+    <div class="metric"><b>32GB+</b><span>メモリ推奨</span></div>
+    <div class="metric"><b>NVMe 512GB+</b><span>1TBなら加点</span></div>
+    <div class="metric"><b>4K / 60Hz</b><span>REGZA 55Z870M接続</span></div>
+  </div>
+</header>
+
+<nav><div class="wrap">
+  <a href="#policy">選定基準</a>
+  <a href="#laptop">中古ノート候補</a>
+  <a href="#top3">現在のTOP3</a>
+  <a href="#surface">Surface Book 3</a>
+  <a href="#check">中古チェック</a>
+  <a href="#sources">公式仕様</a>
+</div></nav>
+
+<main class="wrap">
+  <section id="policy">
+    <h2>まず「本命」と「サブ機」を分ける</h2>
+    <p class="sub">4コアの中古ビジネスノートを、8C16T以上を狙う24時間サーバー本命と同列には扱わない。</p>
+    <div class="grid">
+      <article class="card">
+        <span class="badge">MAIN SERVER</span>
+        <h3>24時間サーバー本命</h3>
+        <p><span class="good">8C16T以上・32GB・NVMe</span>を基本線に、消費電力、冷却、保証、4K60Hzを総合評価。</p>
+      </article>
+      <article class="card">
+        <span class="badge">MOBILE / ADMIN</span>
+        <h3>中古ノート枠</h3>
+        <p>外出先からの管理、Claude Code / Gemini CLI、ブラウザ多用などを想定。<span class="warn">増設性と中古状態</span>を重視。</p>
+      </article>
+      <article class="card">
+        <span class="badge">EXCEPTION</span>
+        <h3>T14 Gen2 AMD</h3>
+        <p>Ryzen 7 PRO 5850Uなら<span class="good">8C16T</span>。ノート枠の中ではサーバー用途にも寄せやすい。</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="laptop">
+    <h2>中古ノートPC候補</h2>
+    <p class="sub">2026/10/04時点の調査メモ。中古価格は在庫・状態・付属品で変動するため、価格は目安。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>候補</th><th>CPU</th><th>RAM</th><th>SSD</th><th>価格目安</th><th>位置づけ</th><th>評価</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Dell Latitude 5420</strong></td>
+            <td>Core i7-1185G7<br>4C / 8T</td>
+            <td>16GB → 最大64GB</td>
+            <td>512GB</td>
+            <td>約43,000円</td>
+            <td>増設性の高い管理・作業機</td>
+            <td class="stars">★★★★★</td>
+          </tr>
+          <tr>
+            <td><strong>ThinkPad T14 Gen2</strong></td>
+            <td>11世代Intel<br>または Ryzen 5000 PRO</td>
+            <td>オンボード＋SO-DIMM<br>最大40/48GB</td>
+            <td>512GB前後</td>
+            <td>4〜6万円台狙い</td>
+            <td>AMD 5850Uなら8C16T</td>
+            <td class="stars">★★★★★</td>
+          </tr>
+          <tr>
+            <td><strong>HP EliteBook 830 G8</strong></td>
+            <td>Core i5-1135G7等<br>4C / 8T</td>
+            <td>16GB → 最大64GB</td>
+            <td>256GB例あり</td>
+            <td>約4.0〜4.5万円</td>
+            <td>コンパクト・増設可能</td>
+            <td class="stars">★★★★☆</td>
+          </tr>
+          <tr>
+            <td><strong>Surface Pro 7</strong></td>
+            <td>Core i7-1065G7<br>4C / 8T</td>
+            <td>16GB固定</td>
+            <td>256GB</td>
+            <td>46,000円例</td>
+            <td>携帯性優先。拡張性は弱い</td>
+            <td class="stars">★★★☆☆</td>
+          </tr>
+          <tr>
+            <td><strong>Surface Book 3</strong></td>
+            <td>Core i7-1065G7<br>4C / 8T</td>
+            <td>32GB固定</td>
+            <td>512GB</td>
+            <td>53,990円例</td>
+            <td>GPU性能は強いが中古リスク高め</td>
+            <td class="stars">★★★☆☆</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="top3">
+    <h2>現在の優先順位</h2>
+    <p class="sub">Surface Book 3を性能だけで選ばず、修理性・増設性・価格まで含めた順位。</p>
+    <div class="grid">
+      <article class="rank" data-rank="1">
+        <strong>Dell Latitude 5420</strong>
+        <p>i7-1185G7 / 16GB / 512GBを4万円台で狙い、必要なら32GB化。</p>
+        <p class="good">2 SO-DIMM・最大64GBが強い。</p>
+      </article>
+      <article class="rank" data-rank="2">
+        <strong>ThinkPad T14 Gen2</strong>
+        <p>16GB / 512GBを基準に、SO-DIMM増設。特にRyzen 7 PRO 5850Uを高評価。</p>
+        <p class="good">5850Uは8C16T。</p>
+      </article>
+      <article class="rank" data-rank="3">
+        <strong>HP EliteBook 830 G8</strong>
+        <p>16GB個体を買って32GB化しやすい。13.3型で持ち運びにも向く。</p>
+        <p class="good">2 SO-DIMM・最大64GB。</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="surface">
+    <h2>Surface Book 3は「保留」</h2>
+    <div class="note warning">
+      <strong>性能が低いからではない。</strong> 32GB RAMとGeForce GTX 1650搭載モデルは、ブラウザ・AIツールの同時利用や軽いゲームで明確なメリットがある。一方、中古で約5.4万円を出す場合は、タブレット側とベース側のバッテリー、着脱機構、キーボードベース内GPUなど、一般的な法人ノートより構造が複雑で、故障時のリスクを織り込む必要がある。
+    </div>
+    <p class="refs">13.5インチ Core i7モデルには32GB / 512GB / GTX 1650 Max-Q構成が存在。Microsoft公式仕様で確認済み。</p>
+  </section>
+
+  <section id="check">
+    <h2>中古法人PCで必ず確認する項目</h2>
+    <p class="sub">スペック表だけでは見抜けない、購入後トラブルになりやすい部分。</p>
+    <ul class="checklist">
+      <li>BIOS / UEFIパスワードが解除済みか</li>
+      <li>Windows Autopilotや企業管理が残っていないか</li>
+      <li>Windows 11のライセンス状態</li>
+      <li>SSDの健康状態・総書き込み量</li>
+      <li>バッテリー劣化率・膨張の有無</li>
+      <li>USB-C充電・映像出力が正常か</li>
+      <li>液晶の白ムラ・輝度ムラ・ドット抜け</li>
+      <li>ACアダプター付属と純正/適合ワット数</li>
+      <li>メモリ構成が1枚か2枚か、空きスロット有無</li>
+      <li>販売店保証・初期不良対応期間</li>
+    </ul>
+  </section>
+
+  <section id="sources">
+    <h2>公式仕様で確認した拡張性</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Dell Latitude 5420</h3>
+        <p>SO-DIMM×2、DDR4-3200、最大64GB。</p>
+        <a href="https://www.dell.com/support/manuals/en-us/latitude-5420-laptop/5420_sp14_setupspecs/memory" target="_blank" rel="noopener">Dell公式仕様 →</a>
+      </article>
+      <article class="card">
+        <h3>ThinkPad T14 Gen2</h3>
+        <p>オンボードRAM＋SO-DIMM×1。8GB搭載機は最大40GB、16GB搭載機は最大48GB。</p>
+        <a href="https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14_Gen_2_AMD/ThinkPad_T14_Gen_2_AMD_Spec.html" target="_blank" rel="noopener">Lenovo PSREF →</a>
+      </article>
+      <article class="card">
+        <h3>HP EliteBook 830 G8</h3>
+        <p>SO-DIMM×2、最大64GB、デュアルチャネル対応。</p>
+        <a href="https://h20195.www2.hp.com/v2/GetDocument.aspx?docname=c07044240" target="_blank" rel="noopener">HP公式データシート →</a>
+      </article>
+    </div>
+    <div class="note accent" style="margin-top:14px">
+      <strong>価格より先に「構成」を確認。</strong> 同じ型番でもRAM枚数、SSD容量、液晶、ACアダプター、LTE、指紋、Windowsエディションが違う。中古は商品ページ単位で判定する。
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">自宅サーバーPC 2026 — 比較条件と中古相場は随時更新。最終判断は購入時の商品ページ・メーカー仕様・保証条件を優先。</div>
+</footer>
 </body>
 </html>
