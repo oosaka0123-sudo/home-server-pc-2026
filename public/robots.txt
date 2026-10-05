@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://oosaka0123-sudo.github.io/home-server-pc-2026/sitemap-index.xml

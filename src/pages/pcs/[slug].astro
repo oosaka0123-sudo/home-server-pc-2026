@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { pcs, formatYen, budgetLabel, dataLabel, type Pc } from '../../lib/pcs';
+
+export function getStaticPaths() {
+  return pcs.map((pc) => ({ params: { slug: pc.slug }, props: { pc } }));
+}
+
+const { pc } = Astro.props as { pc: Pc };
+const annualYen = pc.powerIdleW === null ? null : Math.round((pc.powerIdleW / 1000) * 24 * 365 * 31);
+---
+<BaseLayout title={`${pc.name} ${pc.cpu}｜自宅サーバーPC図鑑`} description={`${pc.name}（${pc.cpu}）を24時間自宅サーバー用途で確認。完成総額、4K60Hz、有線LAN、消費電力、追加パーツを整理します。`}>
+  <header class="page-hero">
+    <p class="kicker">{pc.maker} / {pc.condition} / {dataLabel(pc.dataStatus)}</p>
+    <h1>{pc.name}</h1>
+    <p>{pc.cpu}。ランキングではなく、完成総額10万円以内という基準と、実際の運用条件に照らして整理します。</p>
+  </header>
+  <section class="section">
+    <div class="detail-grid">
+      <article class="detail-main">
+        <div class:list={['status-chip', pc.budgetStatus]}>{budgetLabel(pc.budgetStatus)}</div>
+        <p class="kicker" style="margin-top:2rem">COMPLETE COST</p>
+        <strong class="detail-price">{formatYen(pc.totalJpy)}</strong>
+        <dl class="spec-list">
+          <div class="spec-row"><dt>CPU</dt><dd>{pc.cpu} / {pc.cores}コア {pc.threads}スレッド</dd></div>
+          <div class="spec-row"><dt>MEMORY</dt><dd>{pc.memoryGb}GB</dd></div>
+          <div class="spec-row"><dt>STORAGE</dt><dd>{pc.storageGb >= 1000 ? pc.storageGb / 1000 + 'TB' : pc.storageGb + 'GB'}</dd></div>
+          <div class="spec-row"><dt>LAN</dt><dd>{pc.lan}</dd></div>
+          <div class="spec-row"><dt>WI-FI</dt><dd>{pc.wifi}</dd></div>
+          <div class="spec-row"><dt>4K60Hz</dt><dd>{pc.display4k60}</dd></div>
+          <div class="spec-row"><dt>IDLE POWER</dt><dd>{pc.powerIdleW === null ? '未実測' : `${pc.powerIdleW}W`}</dd></div>
+          <div class="spec-row"><dt>ANNUAL POWER</dt><dd>{annualYen === null ? '未算出' : `約${annualYen.toLocaleString('ja-JP')}円 / 年（31円/kWh仮定）`}</dd></div>
+        </dl>
+      </article>
+      <aside class="detail-side">
+        <p class="kicker">DATA NOTE</p>
+        <h2>数字の出どころを分ける。</h2>
+        <p>{pc.note}</p>
+        <dl class="spec-list">
+          <div class="spec-row"><dt>データ種別</dt><dd>{dataLabel(pc.dataStatus)}</dd></div>
+          <div class="spec-row"><dt>確認日</dt><dd>{pc.checkedAt}</dd></div>
+          <div class="spec-row"><dt>状態</dt><dd>{pc.sourceLabel}</dd></div>
+          <div class="spec-row"><dt>本体価格</dt><dd>{formatYen(pc.bodyPriceJpy)}</dd></div>
+          <div class="spec-row"><dt>追加費用</dt><dd>{formatYen(pc.extrasJpy)}</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

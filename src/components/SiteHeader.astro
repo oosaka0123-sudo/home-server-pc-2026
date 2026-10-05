@@ -1,0 +1,45 @@
+---
+const base = import.meta.env.BASE_URL;
+const links = [
+  { href: `${base}pcs/`, label: 'PC一覧' },
+  { href: `${base}compare/`, label: '比較' },
+  { href: `${base}guide/`, label: 'ガイド' },
+  { href: `${base}about/`, label: 'このサイト' }
+];
+---
+<header class="site-header">
+  <a class="brand" href={base} aria-label="自宅サーバーPC図鑑 ホーム">
+    <span class="brand-mark" aria-hidden="true">24</span>
+    <span class="brand-copy"><strong>自宅サーバーPC図鑑</strong><small>HOME SERVER PC INDEX</small></span>
+  </a>
+  <nav class="desktop-nav" aria-label="メインナビゲーション">
+    {links.map((link) => <a href={link.href}>{link.label}</a>)}
+  </nav>
+  <button class="menu-button" type="button" aria-label="メニューを開く" aria-controls="mobile-menu" aria-expanded="false">
+    <span class="menu-glyph" aria-hidden="true">☰</span>
+  </button>
+  <dialog id="mobile-menu" class="mobile-menu">
+    <div class="mobile-menu-inner">
+      <button class="menu-close" type="button" aria-label="メニューを閉じる">×</button>
+      <p class="kicker">NAVIGATION / 24-365</p>
+      <nav aria-label="モバイルナビゲーション">
+        <a href={base}>HOME</a>
+        {links.map((link, index) => <a href={link.href}><span>0{index + 1}</span>{link.label}</a>)}
+        <a href={`${base}changelog/`}><span>05</span>更新履歴</a>
+      </nav>
+      <p class="menu-note">完成総額10万円以内。24時間365日運用を前提に比較します。</p>
+    </div>
+  </dialog>
+</header>
+
+<script is:inline>
+  const openButton = document.querySelector('.menu-button');
+  const closeButton = document.querySelector('.menu-close');
+  const dialog = document.querySelector('#mobile-menu');
+  openButton?.addEventListener('click', () => { dialog?.showModal(); openButton.setAttribute('aria-expanded', 'true'); });
+  closeButton?.addEventListener('click', () => dialog?.close());
+  dialog?.addEventListener('close', () => openButton?.setAttribute('aria-expanded', 'false'));
+  dialog?.addEventListener('click', (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+</script>
