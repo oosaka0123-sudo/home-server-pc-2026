@@ -1,6 +1,6 @@
 # 自宅サーバーPC図鑑｜HANDOFF
 
-最終更新: 2026-10-05
+最終更新: 2026-10-07
 
 ## 正式情報
 
@@ -64,11 +64,12 @@ Mobile は独立設計し、右上44pxハンバーガー + Full Screen Menu。
 - `/pcs/[slug]/` PC詳細
 - `/compare/` 比較
 - `/guide/` 導入ガイド
+- `/guide/used-business-laptop/` 中古ビジネスノート活用ガイド
 - `/about/` 方針・免責
 - `/changelog/` 更新履歴
 - `/404.html`
 
-静的生成は現在11ページ。
+静的生成は現在12ページ。
 
 ## CI / QA
 
@@ -77,9 +78,9 @@ Mobile は独立設計し、右上44pxハンバーガー + Full Screen Menu。
 2. Astro build
 3. 内部リンク検査
 
-2026-10-05確認:
-- 11 pages build: PASS
-- Internal links 210 references: PASS
+2026-10-07確認:
+- 12 pages build: PASS
+- Internal links: PASS
 - npm audit: 0 vulnerabilities
 - 390px主要10ルート: 横崩れ0 / Console Error 0
 - 1366px主要10ルート: 横崩れ0 / Console Error 0
@@ -109,6 +110,12 @@ Gemini CLI:
 - 0.62.0 は存在するが Google 側 `UNSUPPORTED_CLIENT` で利用不可
 - Antigravity CLI実行コマンドは現時点で確認できていない
 - Geminiの実レビューを取得したふりをしない
+
+## main統合メモ
+
+2026-10-07、`main` の `3525cf9 Add used business laptop comparison and buying checklist` をAstro版へ統合。
+トップページへ混在させず、`/guide/used-business-laptop/` に移して「本命サーバー」と「管理・持ち運び・サブ機」を分離した。
+中古価格は固定せず、購入時に再確認する方針。
 
 ## 次の優先順位
 
