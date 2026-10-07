@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout title="ページが見つかりません｜自宅サーバーPC図鑑">
+  <header class="page-hero">
+    <p class="kicker">404 / NOT FOUND</p>
+    <h1>このページは、まだラックにありません。</h1>
+    <p>URLが変わったか、ページがまだ作成されていません。</p>
+    <div class="hero-actions"><a class="button accent" href={base}>トップへ戻る</a></div>
+  </header>
+</BaseLayout>

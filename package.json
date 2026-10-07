@@ -1,0 +1,22 @@
+{
+  "name": "home-server-pc-2026",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "完成総額10万円以内を軸に、24時間365日運用する自宅サーバーPCを比較するGitHub Pagesサイト",
+  "scripts": {
+    "dev": "astro dev",
+    "validate:data": "node scripts/validate-data.mjs",
+    "build": "astro build",
+    "check:links": "node scripts/check-links.mjs",
+    "qa": "npm run validate:data && npm run build && npm run check:links",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.3.5"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  }
+}

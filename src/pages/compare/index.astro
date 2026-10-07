@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { pcs, formatYen, budgetLabel, dataLabel } from '../../lib/pcs';
+---
+<BaseLayout title="PC比較｜自宅サーバーPC図鑑" description="自宅サーバー候補PCを、完成総額・CPU・メモリ・LAN・4K60Hz・消費電力で横並び比較します。">
+  <header class="page-hero">
+    <p class="kicker">COMPARE / NO RANKING</p>
+    <h1>横に並べると、差が見える。</h1>
+    <p>本体価格ではなく完成総額。公称スペックだけではなく、確認できた運用条件まで同じ表で比較します。</p>
+  </header>
+  <section class="section">
+    <div class="table-wrap" tabindex="0" aria-label="PC比較表。横方向にスクロールできます。">
+      <table class="compare-table">
+        <thead><tr><th>項目</th>{pcs.map((pc) => <th>{pc.maker}<br /><strong>{pc.name}</strong></th>)}</tr></thead>
+        <tbody>
+          <tr><th>判定</th>{pcs.map((pc) => <td>{budgetLabel(pc.budgetStatus)}</td>)}</tr>
+          <tr><th>CPU</th>{pcs.map((pc) => <td><strong>{pc.cpu}</strong><br />{pc.cores}C / {pc.threads}T</td>)}</tr>
+          <tr><th>メモリ</th>{pcs.map((pc) => <td>{pc.memoryGb}GB</td>)}</tr>
+          <tr><th>SSD</th>{pcs.map((pc) => <td>{pc.storageGb >= 1000 ? pc.storageGb / 1000 + 'TB' : pc.storageGb + 'GB'}</td>)}</tr>
+          <tr><th>完成総額</th>{pcs.map((pc) => <td><strong>{formatYen(pc.totalJpy)}</strong></td>)}</tr>
+          <tr><th>有線LAN</th>{pcs.map((pc) => <td>{pc.lan}</td>)}</tr>
+          <tr><th>4K60Hz</th>{pcs.map((pc) => <td>{pc.display4k60}</td>)}</tr>
+          <tr><th>アイドル</th>{pcs.map((pc) => <td>{pc.powerIdleW === null ? '未実測' : pc.powerIdleW + 'W'}</td>)}</tr>
+          <tr><th>データ種別</th>{pcs.map((pc) => <td>{dataLabel(pc.dataStatus)}<br /><small>{pc.checkedAt}</small></td>)}</tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note-box">スマホでは表を横にスワイプできます。未実測の値を推定値で埋めず、空白ではなく「未実測」「調査中」と明記します。</p>
+  </section>
+</BaseLayout>

@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PcCard from '../../components/PcCard.astro';
+import { pcs } from '../../lib/pcs';
+---
+<BaseLayout title="PC一覧｜自宅サーバーPC図鑑" description="完成総額10万円以内を主軸に、自宅サーバー候補PCを一覧で確認できます。">
+  <header class="page-hero">
+    <p class="kicker">PC INDEX / CANDIDATES</p>
+    <h1>PC一覧</h1>
+    <p>価格だけで並べません。完成総額10万円以内を主軸に、8コア、32GB、4K60Hz、有線LAN、24時間運用の現実まで確認します。</p>
+  </header>
+  <section class="section">
+    <div class="pc-grid">
+      {pcs.map((pc, index) => <PcCard pc={pc} index={index + 1} />)}
+    </div>
+    <p class="note-box">「予算超過・参考」は性能比較のため残しています。おすすめ対象ではなく、10万円以内の候補と何が違うかを見るための基準です。</p>
+  </section>
+</BaseLayout>

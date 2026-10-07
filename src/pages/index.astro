@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PcCard from '../components/PcCard.astro';
+import { pcs } from '../lib/pcs';
+const base = import.meta.env.BASE_URL;
+const within = pcs.filter((pc) => pc.budgetStatus === 'within');
+const others = pcs.filter((pc) => pc.budgetStatus !== 'within');
+---
+<BaseLayout title="自宅サーバーPC図鑑｜10万円以内のPCを24時間運用目線で比較【2026年版】">
+  <section class="hero">
+    <div class="hero-copy">
+      <div>
+        <p class="kicker">HOME SERVER PC INDEX / 2026</p>
+        <h1><span>自宅サーバー</span><span>PC図鑑</span></h1>
+        <p class="hero-lead">完成総額10万円以内で、24時間365日動かす。ミニPC・中古PCを、スペックだけではなく実測・総額・電気代で比較します。</p>
+        <div class="hero-actions">
+          <a class="button accent" href={`${base}compare/`}>PCを比較する</a>
+          <a class="button ghost" href={`${base}guide/`}>選び方を見る</a>
+        </div>
+      </div>
+      <p class="kicker">NO GAMING RANKING / REAL OPERATION FIRST</p>
+    </div>
+    <div class="hero-visual" aria-label="24時間365日運用を表す技術ビジュアル">
+      <div class="server-schematic" aria-hidden="true"><i class="schematic-dot"></i><i class="schematic-dot"></i><i class="schematic-dot"></i></div>
+      <div class="hero-number">24<small>HOURS × 365 DAYS</small></div>
+      <div class="hero-specs">
+        <div><strong>¥100K</strong><small>完成総額 上限</small></div>
+        <div><strong>8C+</strong><small>物理コア 優先</small></div>
+        <div><strong>32GB</strong><small>メモリ 推奨</small></div>
+        <div><strong>4K60</strong><small>映像出力</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <p class="kicker">01 / BASELINE</p>
+      <div><h2>安いだけでは、サーバー向きとは言わない。</h2><p>本体価格ではなく、RAM・SSD・変換アダプターまで含めた完成総額で判断します。24時間運用では、消費電力・発熱・保証・付属品も同じくらい重要です。</p></div>
+    </div>
+    <div class="criteria-grid" data-reveal>
+      <article class="metric primary"><span class="kicker">BUDGET</span><strong class="metric-number">10万</strong><small>円以内。必要追加パーツを全部足した「完成総額」で線を引く。</small></article>
+      <article class="metric"><span class="kicker">CPU</span><strong class="metric-number">8C</strong><small>Headless Chrome、CLI、バッチの同時処理を想定。</small></article>
+      <article class="metric"><span class="kicker">RAM</span><strong class="metric-number">32</strong><small>GB推奨。複数タスクを常駐させる余裕を確保。</small></article>
+      <article class="metric"><span class="kicker">NETWORK</span><strong class="metric-number">LAN</strong><small>有線LANを基本条件にし、遠隔運用の安定性を優先。</small></article>
+      <article class="metric"><span class="kicker">DISPLAY</span><strong class="metric-number">60</strong><small>4K60Hz。初期設定やREGZA接続時の制約まで確認。</small></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <p class="kicker">02 / CANDIDATES</p>
+      <div><h2>まずは条件内。超える機種は参考として分ける。</h2><p>無理にランキングを作らず、「予算内」「調査中」「予算超過・参考」を明示します。</p></div>
+    </div>
+    <div class="pc-grid">
+      {[...within, ...others].map((pc, index) => <PcCard pc={pc} index={index + 1} />)}
+    </div>
+  </section>
+
+  <section class="dark-panel">
+    <div class="section-head">
+      <p class="kicker">03 / EVIDENCE</p>
+      <div><h2>比較の中心は、実際に動かした結果。</h2><p>販売ページの仕様、公称値、実測値、推定値を混ぜません。各データに確認日と種別を持たせます。</p></div>
+    </div>
+    <div class="axis-list">
+      <div class="axis-row"><span>01</span><strong>完成総額</strong><small>本体＋RAM＋SSD＋必要アダプター</small></div>
+      <div class="axis-row"><span>02</span><strong>24時間の消費電力</strong><small>アイドル / 高負荷 / 年間電気代</small></div>
+      <div class="axis-row"><span>03</span><strong>実運用の安定性</strong><small>Chrome / CLI / SSH / 自動復帰</small></div>
+      <div class="axis-row"><span>04</span><strong>接続の現実</strong><small>LAN / Wi-Fi / 4K60Hz / 付属品</small></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <p class="kicker">04 / NEXT</p>
+      <div><h2>買う前の比較から、買った後の設定まで。</h2><p>PC選びだけで終わらせず、Windows 11・SSH・スリープ無効・自動復帰など、常時稼働まで一本の導線にします。</p></div>
+    </div>
+    <a class="button" href={`${base}guide/`}>自宅サーバー導入ガイドへ</a>
+  </section>
+</BaseLayout>

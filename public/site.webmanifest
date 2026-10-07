@@ -1,0 +1,9 @@
+{
+  "name": "自宅サーバーPC図鑑",
+  "short_name": "サーバーPC図鑑",
+  "start_url": "/home-server-pc-2026/",
+  "display": "standalone",
+  "background_color": "#f1f2eb",
+  "theme_color": "#11140f",
+  "icons": []
+}

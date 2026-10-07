@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="中古ビジネスノート活用ガイド｜自宅サーバーPC図鑑"
+  description="24時間サーバー本命とは分けて、管理・持ち運び・AI作業用の中古ビジネスノートを選ぶ基準と購入前チェック項目を整理します。"
+>
+  <header class="page-hero">
+    <p class="kicker">USED BUSINESS LAPTOP / SUB MACHINE</p>
+    <h1>本命サーバーと、管理ノートは分けて選ぶ。</h1>
+    <p>4コアの中古ノートを、8コア以上を狙う24時間サーバー本命と同列にはしません。外出先からの管理、Claude Code / Gemini系CLI、ブラウザ作業、予備機としての価値を別軸で見ます。</p>
+  </header>
+
+  <section class="section">
+    <div class="section-head">
+      <p class="kicker">01 / ROLE</p>
+      <div>
+        <h2>役割が違えば、正解も変わる。</h2>
+        <p>サーバー本命は並列性能・メモリ・消費電力・安定性。中古ノートは持ち運び、増設性、修理しやすさ、バッテリー、中古リスクを優先します。</p>
+      </div>
+    </div>
+    <div class="guide-steps">
+      <article class="guide-step">
+        <div>
+          <h2>24時間サーバー本命</h2>
+          <p>8C16T以上、32GB、NVMe、有線LANを基本線に、完成総額10万円以内を優先。常時稼働の消費電力と冷却を重視します。</p>
+        </div>
+      </article>
+      <article class="guide-step">
+        <div>
+          <h2>管理・持ち運び・サブ機</h2>
+          <p>4C8Tでも用途次第で十分。ただしRAM増設可否、USB-C、映像出力、バッテリー、BIOSロック、Autopilot残存を購入前に確認します。</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <p class="kicker">02 / CANDIDATES</p>
+      <div>
+        <h2>中古ノート候補は、用途別に見る。</h2>
+        <p>価格は在庫と状態で変わるため固定値にしません。購入時点で再確認し、ここでは構成と向き不向きを整理します。</p>
+      </div>
+    </div>
+    <div class="table-wrap" tabindex="0" aria-label="中古ビジネスノート候補比較。横方向にスクロールできます。">
+      <table class="compare-table">
+        <thead>
+          <tr><th>機種</th><th>CPU例</th><th>メモリ</th><th>向く役割</th><th>見方</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Dell Latitude 5420</th>
+            <td>Core i7-1185G7<br />4C / 8T</td>
+            <td>2 SO-DIMM / 最大64GB級</td>
+            <td>管理・ブラウザ・CLI作業</td>
+            <td>増設性が強み。状態とバッテリーを重視。</td>
+          </tr>
+          <tr>
+            <th>ThinkPad T14 Gen 2</th>
+            <td>Ryzen 7 PRO 5850Uなら<br />8C / 16T</td>
+            <td>オンボード＋SO-DIMM</td>
+            <td>サブ機兼軽サーバー候補</td>
+            <td>AMD 5850U構成は別格。構成違いに注意。</td>
+          </tr>
+          <tr>
+            <th>HP EliteBook 830 G8</th>
+            <td>第11世代 Core i5 / i7<br />4C / 8T</td>
+            <td>2 SO-DIMM / 最大64GB級</td>
+            <td>持ち運び・管理端末</td>
+            <td>小型でも増設しやすい点を評価。</td>
+          </tr>
+          <tr>
+            <th>Surface Pro 7</th>
+            <td>Core i7-1065G7<br />4C / 8T</td>
+            <td>固定RAM</td>
+            <td>軽量な遠隔管理端末</td>
+            <td>携帯性は強いが、拡張性は弱い。</td>
+          </tr>
+          <tr>
+            <th>Surface Book 3</th>
+            <td>Core i7-1065G7<br />4C / 8T</td>
+            <td>32GB構成あり</td>
+            <td>GPUも使う作業端末</td>
+            <td>性能は魅力。ただし中古構造リスクを織り込む。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="dark-panel">
+    <div class="section-head">
+      <p class="kicker">03 / SURFACE BOOK 3</p>
+      <div>
+        <h2>Surface Book 3は、性能ではなく中古リスクで保留。</h2>
+        <p>32GB構成やGTX 1650搭載モデルは魅力があります。一方で、2つのバッテリー、着脱機構、GPUを持つキーボードベースなど構造が複雑です。中古では故障時の負担を一般的な法人ノートより大きく見積もります。</p>
+      </div>
+    </div>
+    <div class="axis-list">
+      <div class="axis-row"><span>01</span><strong>32GB構成</strong><small>ブラウザ・AIツール同時利用では有利</small></div>
+      <div class="axis-row"><span>02</span><strong>GPU搭載</strong><small>用途によっては明確な加点</small></div>
+      <div class="axis-row"><span>03</span><strong>複雑な構造</strong><small>中古故障リスクは高めに評価</small></div>
+      <div class="axis-row"><span>04</span><strong>修理性</strong><small>法人ノートより不利になりやすい</small></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <p class="kicker">04 / CHECKLIST</p>
+      <div>
+        <h2>中古は、スペック表より先に確認する項目がある。</h2>
+        <p>安く見えても、管理ロック・バッテリー・ACアダプター・RAM構成で実質コストが変わります。</p>
+      </div>
+    </div>
+    <div class="guide-steps">
+      <article class="guide-step"><div><h2>BIOS / UEFI</h2><p>管理者・システム・SSDパスワードが未設定か確認。解除できない個体は避けます。</p></div></article>
+      <article class="guide-step"><div><h2>組織管理</h2><p>Windows Autopilotや会社・学校アカウントへの強制登録が残っていないか確認します。</p></div></article>
+      <article class="guide-step"><div><h2>SSD / バッテリー</h2><p>SSDの健康状態、総書き込み量、バッテリー劣化・膨張の有無を確認します。</p></div></article>
+      <article class="guide-step"><div><h2>端子 / 付属品</h2><p>USB-C充電・映像出力、液晶、ACアダプターの容量、メモリ枚数と空きスロット、販売店保証を確認します。</p></div></article>
+    </div>
+  </section>
+
+  <section class="section prose">
+    <h2>公式仕様を確認する</h2>
+    <p>中古出品は同じ型番でも構成が違います。購入候補が決まったら、出品ページだけでなくメーカー仕様も合わせて確認します。</p>
+    <ul>
+      <li><a href="https://www.dell.com/support/manuals/en-us/latitude-5420-laptop/5420_sp14_setupspecs/memory" target="_blank" rel="noopener noreferrer">Dell Latitude 5420 メモリ仕様</a></li>
+      <li><a href="https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14_Gen_2_AMD/ThinkPad_T14_Gen_2_AMD_Spec.html" target="_blank" rel="noopener noreferrer">Lenovo ThinkPad T14 Gen 2 AMD PSREF</a></li>
+      <li><a href="https://jp.ext.hp.com/notebooks/business/elitebook_830_g8/" target="_blank" rel="noopener noreferrer">HP EliteBook 830 G8 製品詳細</a></li>
+    </ul>
+    <p class="note-box">このページは「中古ノートを本命サーバーランキングへ混ぜない」ための別枠ガイドです。価格は固定せず、購入時点の出品条件で再判定します。</p>
+  </section>
+</BaseLayout>

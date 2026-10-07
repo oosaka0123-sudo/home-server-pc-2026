@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.astro/
+.chrome-mobile-test/
+
+# Local QA artifacts
+/mobile*.png
+/m390*.png
+/qa-*.mjs
+/cdp-*.mjs
+/lighthouse.json
+/review-prompt.txt
+/preview.pid
+/package-lock.preqa.json
+/og-template.html
