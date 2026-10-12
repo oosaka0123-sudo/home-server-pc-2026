@@ -1,3 +1,5 @@
+[Reading 25 lines from start (total: 25 lines, 0 remaining)]
+
 {
   "slug": "minisforum-um780-xtx",
   "name": "UM780 XTX",
@@ -20,5 +22,6 @@
   "dataStatus": "shop",
   "checkedAt": "2026-10-02",
   "sourceLabel": "中古販売価格確認",
-  "note": "性能は魅力的だが、確認時点では完成総額10万円ルールを超えるため参考枠。"
+  "note": "性能は魅力的だが、確認時点では完成総額10万円ルールを超えるため参考枠。",
+  "yahooQuery": "MINISFORUM UM780 XTX 32GB 1TB"
 }

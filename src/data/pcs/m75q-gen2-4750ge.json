@@ -1,3 +1,5 @@
+[Reading 25 lines from start (total: 25 lines, 0 remaining)]
+
 {
   "slug": "thinkcentre-m75q-gen2-4750ge",
   "name": "ThinkCentre M75q Gen 2",
@@ -20,5 +22,6 @@
   "dataStatus": "research",
   "checkedAt": "2026-10-02",
   "sourceLabel": "価格再調査中",
-  "note": "5750GEより下位の比較候補。完成総額10万円以内になる販売個体を優先して掲載する。"
+  "note": "5750GEより下位の比較候補。完成総額10万円以内になる販売個体を優先して掲載する。",
+  "yahooQuery": "ThinkCentre M75q Gen 2 Ryzen 7 PRO 4750GE 32GB 512GB"
 }

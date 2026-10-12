@@ -1,3 +1,5 @@
+[Reading 66 lines from start (total: 66 lines, 0 remaining)]
+
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { pcs, formatYen, budgetLabel, dataLabel, type Pc } from '../../lib/pcs';
@@ -8,6 +10,9 @@ export function getStaticPaths() {
 
 const { pc } = Astro.props as { pc: Pc };
 const annualYen = pc.powerIdleW === null ? null : Math.round((pc.powerIdleW / 1000) * 24 * 365 * 31);
+const yahooUrl = pc.yahooQuery
+  ? `https://shopping.yahoo.co.jp/search?p=${encodeURIComponent(pc.yahooQuery)}`
+  : null;
 ---
 <BaseLayout title={`${pc.name} ${pc.cpu}｜自宅サーバーPC図鑑`} description={`${pc.name}（${pc.cpu}）を24時間自宅サーバー用途で確認。完成総額、4K60Hz、有線LAN、消費電力、追加パーツを整理します。`}>
   <header class="page-hero">
@@ -45,5 +50,19 @@ const annualYen = pc.powerIdleW === null ? null : Math.round((pc.powerIdleW / 10
         </dl>
       </aside>
     </div>
+    {yahooUrl && (
+      <aside class="affiliate-box" data-affiliate-box hidden>
+        <div>
+          <span class="pr-label">PR</span>
+          <p class="kicker">YAHOO! SHOPPING</p>
+          <h2>現在の販売個体を確認する。</h2>
+          <p>中古・新品とも価格や在庫は変動します。型番・メモリ・SSD・付属品を確認したうえで購入してください。</p>
+        </div>
+        <a class="yahoo-button" data-linkswitch-cta href={yahooUrl} target="_blank" rel="sponsored nofollow noopener">
+          Yahoo!ショッピングで{pc.name}を探す
+        </a>
+        <p class="affiliate-note">このリンクはアフィリエイト広告です。価格・在庫・ポイントはYahoo!ショッピング側で変動します。</p>
+      </aside>
+    )}
   </section>
 </BaseLayout>
