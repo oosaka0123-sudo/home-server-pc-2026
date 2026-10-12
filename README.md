@@ -26,6 +26,8 @@ PC情報は `src/data/pcs/*.json` の1機種1ファイルで管理します。
 
 ```bash
 npm ci
+npm run qa
 npm run dev
-npm run build
 ```
+
+`npm run qa` は、PCデータ検証 → Astro build → 内部リンク検査をまとめて実行します。
