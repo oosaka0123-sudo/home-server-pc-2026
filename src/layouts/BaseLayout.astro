@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import AffiliateRuntime from '../components/AffiliateRuntime.astro';
 
 const {
   title = '自宅サーバーPC図鑑',
@@ -53,6 +54,7 @@ const structuredData = {
     <SiteHeader />
     <main id="main"><slot /></main>
     <SiteFooter />
+    <AffiliateRuntime />
     <script is:inline>
       if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         const items = document.querySelectorAll('[data-reveal]');
