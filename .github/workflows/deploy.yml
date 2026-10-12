@@ -31,6 +31,16 @@ jobs:
         run: npm ci
       - name: Validate PC data
         run: npm run validate:data
+      - name: Prepare ValueCommerce LinkSwitch runtime
+        shell: bash
+        env:
+          VC_LINKSWITCH_PID: ${{ secrets.VALUECOMMERCE_LINKSWITCH_PID }}
+        run: |
+          if [[ "$VC_LINKSWITCH_PID" =~ ^[0-9]+$ ]]; then
+            printf '{"enabled":true,"pid":"%s"}\n' "$VC_LINKSWITCH_PID" > public/valuecommerce.runtime.json
+          else
+            printf '{"enabled":false,"pid":""}\n' > public/valuecommerce.runtime.json
+          fi
       - name: Build Astro
         run: npm run build
       - name: Check internal links
