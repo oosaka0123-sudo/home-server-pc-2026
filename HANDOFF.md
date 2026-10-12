@@ -1,6 +1,6 @@
 # 自宅サーバーPC図鑑｜HANDOFF
 
-最終更新: 2026-10-07
+最終更新: 2026-10-12
 
 ## 正式情報
 
@@ -57,6 +57,7 @@
 Awwwards級の完成度は狙うが、作品性より比較・可読性を優先する。
 初期版では動画 / WebGL / particles / custom cursor は使わない。
 Mobile は独立設計し、右上44pxハンバーガー + Full Screen Menu。
+
 ## 現在のページ
 
 - `/` HOME
@@ -68,8 +69,6 @@ Mobile は独立設計し、右上44pxハンバーガー + Full Screen Menu。
 - `/about/` 方針・免責
 - `/changelog/` 更新履歴
 - `/404.html`
-
-静的生成は現在12ページ。
 
 ## CI / QA
 
@@ -85,16 +84,12 @@ Mobile は独立設計し、右上44pxハンバーガー + Full Screen Menu。
 - 390px主要10ルート: 横崩れ0 / Console Error 0
 - 1366px主要10ルート: 横崩れ0 / Console Error 0
 - Mobile Menu: open/close + aria-expanded PASS
-- Lighthouse mobile:
-  - Performance 94
-  - Accessibility 100
-  - Best Practices 100
-  - SEO 100
-  - LCP 1.0s
-  - CLS 0
+- Lighthouse mobile: Performance 94 / Accessibility 100 / Best Practices 100 / SEO 100
+- LCP 1.0s / CLS 0
 
 ## レビュー
-Claude実レビューで採用:
+
+既存Claude実レビューで採用:
 - 実測データを最大の差別化にする
 - 出典 / 確認日 / データ種別を明示
 - 初回リリースを絞る
@@ -104,26 +99,29 @@ GitHub Copilot CLI独立レビュー:
 - CONDITIONAL PASS
 - build / 390px / 1366px / Console Error を独立再検証しPASS
 - OGP画像不足を指摘 → 1200x630 `public/og-default.png` を追加済み
-- 実機写真は公開ブロッカーではなく、実機入手後の追加を推奨
 
-Gemini CLI:
-- 0.62.0 は存在するが Google 側 `UNSUPPORTED_CLIENT` で利用不可
-- Antigravity CLI実行コマンドは現時点で確認できていない
-- Geminiの実レビューを取得したふりをしない
+2026-10-12:
+- PC03でAntigravity CLI `agy` と Gemini 3.1 Pro High / Claude Sonnet 5.5 High のモデル一覧取得を確認
+- ただし今回のヘッドレス独立レビューは、内部 `command` 権限が自動拒否され完走できなかった
+- 権限を全開放して完了扱いにはせず、外部3者レビューは「未完了」として扱う
+- ChatGPT監査で、壊れたfavicon、構造化データ不足、一次情報リンク不足、README/HANDOFFの古い記述を修正対象化
 
-## main統合メモ
+## 2026-10-12 レビュー修正
 
-2026-10-07、`main` の `3525cf9 Add used business laptop comparison and buying checklist` をAstro版へ統合。
-トップページへ混在させず、`/guide/used-business-laptop/` に移して「本命サーバー」と「管理・持ち運び・サブ機」を分離した。
-中古価格は固定せず、購入時に再確認する方針。
+- favicon.svgを有効なSVGへ修復
+- webmanifestへSVG icon / scopeを追加
+- WebSite JSON-LDとrobots metadataを追加
+- 中古ビジネスノートガイドへDell / Lenovo / HP / Microsoftの公式仕様リンクを追加
+- Surface Book 3の32GB + GTX 1650表現を公式SKUに合わせて限定
+- READMEの標準確認コマンドを `npm run qa` 中心へ修正
 
 ## 次の優先順位
 
-1. main反映後のGitHub Pages本番確認
-2. 4750GEの価格・総額調査
-3. 完成総額10万円以内の現行候補を追加
-4. 実機購入後、消費電力・温度・CLI・Chrome・4K60Hz・SSHを実測
-5. 実機写真を統一アートディレクションで追加
+1. PRのCI / build / link checkを確認してmainへ反映
+2. GitHub Pages本番確認
+3. 4750GEの価格・総額調査
+4. 完成総額10万円以内の現行候補を追加
+5. 実機購入後、消費電力・温度・CLI・Chrome・4K60Hz・SSHを実測
 6. Search Console / Bing登録は本番安定後
 
 ランキングは実測データが十分蓄積するまで作らない。
