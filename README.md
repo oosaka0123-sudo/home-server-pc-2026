@@ -20,6 +20,8 @@ GitHub Pages: https://oosaka0123-sudo.github.io/home-server-pc-2026/
 
 Astro / JSON data / GitHub Actions / GitHub Pages
 
+Yahoo!ショッピングの購入導線はValueCommerce LinkSwitchを利用し、実PIDはGitHub Actions Secretからデプロイ時に注入します。公開コードへ実IDを固定しません。
+
 PC情報は `src/data/pcs/*.json` の1機種1ファイルで管理します。
 
 ## ローカル確認

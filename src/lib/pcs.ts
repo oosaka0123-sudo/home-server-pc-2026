@@ -21,6 +21,7 @@ export type Pc = {
   checkedAt: string;
   sourceLabel: string;
   note: string;
+  yahooQuery?: string;
 };
 
 const modules = import.meta.glob('../data/pcs/*.json', { eager: true, import: 'default' }) as Record<string, Pc>;

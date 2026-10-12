@@ -1,0 +1,31 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+<script is:inline define:vars={{ base }}>
+  (() => {
+    const boxes = [...document.querySelectorAll('[data-affiliate-box]')];
+    if (!boxes.length) return;
+
+    fetch(`${base}valuecommerce.runtime.json`, { cache: 'no-store' })
+      .then((response) => response.ok ? response.json() : null)
+      .then((config) => {
+        const pid = String(config?.pid || '').trim();
+        if (config?.enabled !== true || !/^\d+$/.test(pid)) return;
+
+        globalThis.vc_pid = pid;
+
+        if (document.querySelector('script[data-vc-linkswitch]')) {
+          boxes.forEach((box) => { box.hidden = false; });
+          return;
+        }
+
+        const script = document.createElement('script');
+        script.src = 'https://aml.valuecommerce.com/vcdal.js';
+        script.async = true;
+        script.dataset.vcLinkswitch = '';
+        script.onload = () => boxes.forEach((box) => { box.hidden = false; });
+        document.head.appendChild(script);
+      })
+      .catch(() => {});
+  })();
+</script>

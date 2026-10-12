@@ -67,6 +67,7 @@ Mobile は独立設計し、右上44pxハンバーガー + Full Screen Menu。
 - `/guide/` 導入ガイド
 - `/guide/used-business-laptop/` 中古ビジネスノート活用ガイド
 - `/about/` 方針・免責
+- `/privacy/` プライバシー・広告方針
 - `/changelog/` 更新履歴
 - `/404.html`
 
@@ -114,6 +115,16 @@ GitHub Copilot CLI独立レビュー:
 - 中古ビジネスノートガイドへDell / Lenovo / HP / Microsoftの公式仕様リンクを追加
 - Surface Book 3の32GB + GTX 1650表現を公式SKUに合わせて限定
 - READMEの標準確認コマンドを `npm run qa` 中心へ修正
+
+## アフィリエイト方針
+
+- Yahoo!ショッピングの購入導線はPC詳細ページだけに置く。
+- 公開コードには通常のYahoo!ショッピング検索URLだけを持たせる。
+- ValueCommerce LinkSwitchの実PIDはGitHub Actions Secret `VALUECOMMERCE_LINKSWITCH_PID` からデプロイ時に注入する。
+- Secret未設定時は購入CTAを表示しない。
+- PR表記を購入導線の近くに表示する。
+- アフィリエイト提携や報酬額を比較順位・予算判定・実測評価に使わない。
+- プライバシーポリシーで広告・Cookie等の外部サービス利用方針を明示する。
 
 ## 次の優先順位
 

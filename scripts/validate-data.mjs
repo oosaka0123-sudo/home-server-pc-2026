@@ -26,6 +26,9 @@ for (const file of files) {
   if (pc.storageGb < 512) errors.push(`${file}: storage below 512GB baseline`);
   if (pc.powerIdleW !== null && pc.powerIdleW <= 0) errors.push(`${file}: invalid powerIdleW`);
   if (pc.powerLoadW !== null && pc.powerLoadW <= 0) errors.push(`${file}: invalid powerLoadW`);
+  if (pc.yahooQuery !== undefined && (typeof pc.yahooQuery !== 'string' || !pc.yahooQuery.trim())) {
+    errors.push(`${file}: yahooQuery must be a non-empty string when present`);
+  }
 
   if ([pc.bodyPriceJpy, pc.extrasJpy, pc.totalJpy].every(Number.isFinite)) {
     if (pc.bodyPriceJpy + pc.extrasJpy !== pc.totalJpy) errors.push(`${file}: totalJpy must equal bodyPriceJpy + extrasJpy`);
