@@ -6,11 +6,13 @@ import AffiliateRuntime from '../components/AffiliateRuntime.astro';
 
 const {
   title = '自宅サーバーPC図鑑',
-  description = '完成総額10万円以内を軸に、24時間365日動かすミニPC・中古PCを実測・総額・電気代で比較します。'
+  description = '完成総額10万円以内を軸に、24時間365日動かすミニPC・中古PCを実測・総額・電気代で比較します。',
+  socialImage = `${import.meta.env.BASE_URL}og-default.png`,
+  socialImageAlt = '自宅サーバーPC図鑑｜完成総額10万円以内の24時間運用PC比較'
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
-const ogImage = new URL(`${import.meta.env.BASE_URL}og-default.png`, Astro.site);
+const ogImage = new URL(socialImage, Astro.site);
 const siteName = '自宅サーバーPC図鑑';
 const structuredData = {
   '@context': 'https://schema.org',
@@ -40,12 +42,10 @@ const structuredData = {
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content="ja_JP" />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="自宅サーバーPC図鑑｜完成総額10万円以内の24時間運用PC比較" />
+    <meta property="og:image:alt" content={socialImageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={ogImage} />
-    <meta name="twitter:image:alt" content="自宅サーバーPC図鑑｜完成総額10万円以内の24時間運用PC比較" />
+    <meta name="twitter:image:alt" content={socialImageAlt} />
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <title>{title}</title>
   </head>
