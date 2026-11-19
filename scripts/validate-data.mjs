@@ -1,17 +1,35 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const dir = path.resolve('src/data/pcs');
-const files = fs.readdirSync(dir).filter((name) => name.endsWith('.json'));
+const pcDir = path.resolve('src/data/pcs');
+const publicDir = path.resolve('public');
+const files = fs.readdirSync(pcDir).filter((name) => name.endsWith('.json'));
 const allowedBudget = new Set(['within', 'over', 'research']);
 const allowedData = new Set(['measured', 'mixed', 'shop', 'research']);
-const required = ['slug','name','maker','condition','cpu','cores','threads','memoryGb','storageGb','lan','wifi','display4k60','budgetStatus','dataStatus','checkedAt','sourceLabel','note','image','imageAlt','imageCredit','imageSourceUrl'];
+const allowedImageKind = new Set(['manufacturer', 'original']);
+const required = ['slug','name','maker','condition','cpu','cores','threads','memoryGb','storageGb','lan','wifi','display4k60','budgetStatus','dataStatus','checkedAt','sourceLabel','note','image','imageAlt','imageCredit','imageSourceUrl','imageCheckedAt','imageKind'];
 const slugs = new Set();
 const errors = [];
 const warnings = [];
 
+function validateLocalImage(owner, image, checkedAt, kind, sourceUrl) {
+  if (typeof image !== 'string' || !/^images\/.+\.(?:jpe?g|png|webp|avif)$/i.test(image)) {
+    errors.push(`${owner}: image must be a local public/images path`);
+    return;
+  }
+  const imagePath = path.join(publicDir, image);
+  if (!fs.existsSync(imagePath)) {
+    errors.push(`${owner}: image file not found: public/${image}`);
+  } else if (fs.statSync(imagePath).size < 1000) {
+    errors.push(`${owner}: image file is unexpectedly small: public/${image}`);
+  }
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(checkedAt ?? '')) errors.push(`${owner}: imageCheckedAt must be YYYY-MM-DD`);
+  if (!allowedImageKind.has(kind)) errors.push(`${owner}: invalid imageKind`);
+  if (!/^https:\/\//.test(sourceUrl ?? '')) errors.push(`${owner}: imageSourceUrl must use https`);
+}
+
 for (const file of files) {
-  const pc = JSON.parse(fs.readFileSync(path.join(dir, file), 'utf8'));
+  const pc = JSON.parse(fs.readFileSync(path.join(pcDir, file), 'utf8'));
   for (const key of required) {
     if (pc[key] === undefined || pc[key] === '') errors.push(`${file}: missing ${key}`);
   }
@@ -26,8 +44,7 @@ for (const file of files) {
   if (pc.storageGb < 512) errors.push(`${file}: storage below 512GB baseline`);
   if (pc.powerIdleW !== null && pc.powerIdleW <= 0) errors.push(`${file}: invalid powerIdleW`);
   if (pc.powerLoadW !== null && pc.powerLoadW <= 0) errors.push(`${file}: invalid powerLoadW`);
-  if (!/^https:\/\//.test(pc.image)) errors.push(`${file}: image must use https`);
-  if (!/^https:\/\//.test(pc.imageSourceUrl)) errors.push(`${file}: imageSourceUrl must use https`);
+  validateLocalImage(file, pc.image, pc.imageCheckedAt, pc.imageKind, pc.imageSourceUrl);
   if (pc.yahooQuery !== undefined && (typeof pc.yahooQuery !== 'string' || !pc.yahooQuery.trim())) {
     errors.push(`${file}: yahooQuery must be a non-empty string when present`);
   }
@@ -44,9 +61,23 @@ for (const file of files) {
   if (pc.budgetStatus === 'research') warnings.push(`${file}: research entry remains incomplete`);
 }
 
+const usedLaptopPath = path.resolve('src/data/used-laptops.json');
+const usedLaptops = JSON.parse(fs.readFileSync(usedLaptopPath, 'utf8'));
+if (!Array.isArray(usedLaptops) || usedLaptops.length === 0) {
+  errors.push('used-laptops.json: at least one candidate is required');
+} else {
+  for (const laptop of usedLaptops) {
+    const owner = `used-laptops.json: ${laptop.name ?? 'unnamed'}`;
+    for (const key of ['name','image','imageAlt','imageCredit','imageSourceUrl','imageCheckedAt','imageKind','cpu','memory','role','note']) {
+      if (laptop[key] === undefined || laptop[key] === '') errors.push(`${owner}: missing ${key}`);
+    }
+    validateLocalImage(owner, laptop.image, laptop.imageCheckedAt, laptop.imageKind, laptop.imageSourceUrl);
+  }
+}
+
 for (const warning of warnings) console.warn('WARN', warning);
 if (errors.length) {
   for (const error of errors) console.error('ERROR', error);
   process.exit(1);
 }
-console.log(`PC data validation passed: ${files.length} files, ${warnings.length} warning(s)`);
+console.log(`PC data validation passed: ${files.length} main PCs + ${usedLaptops.length} used laptops, ${warnings.length} warning(s)`);
