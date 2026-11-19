@@ -21,6 +21,10 @@ export type Pc = {
   checkedAt: string;
   sourceLabel: string;
   note: string;
+  image: string;
+  imageAlt: string;
+  imageCredit: string;
+  imageSourceUrl: string;
   yahooQuery?: string;
 };
 
