@@ -1,0 +1,67 @@
+[
+  {
+    "name": "Dell Latitude 5420",
+    "image": "images/guide/dell-latitude-5420.jpg",
+    "imageAlt": "Dell Latitude 5420 の製品写真",
+    "imageCredit": "Dell",
+    "imageSourceUrl": "https://www.dell.com/support/product-details/ja-jp/product/latitude-5420-laptop",
+    "imageCheckedAt": "2026-11-19",
+    "imageKind": "manufacturer",
+    "cpu": "Core i7-1185G7 / 4C8T",
+    "memory": "2 SO-DIMM / 最大64GB",
+    "role": "管理・ブラウザ・CLI作業",
+    "note": "増設性が強み。状態とバッテリーを重視。"
+  },
+  {
+    "name": "ThinkPad T14 Gen 2",
+    "image": "images/guide/thinkpad-t14-gen2.png",
+    "imageAlt": "Lenovo ThinkPad T14 Gen 2 AMD の製品写真",
+    "imageCredit": "Lenovo",
+    "imageSourceUrl": "https://www.lenovo.com/jp/ja/p/laptops/thinkpad/thinkpad-t-series/22tpt14t4a1/22tpt14t4a1",
+    "imageCheckedAt": "2026-11-19",
+    "imageKind": "manufacturer",
+    "cpu": "Ryzen 7 PRO 5850Uなら 8C16T",
+    "memory": "オンボード＋SO-DIMM",
+    "role": "サブ機兼軽サーバー候補",
+    "note": "AMD 5850U構成は別格。構成違いに注意。"
+  },
+  {
+    "name": "HP EliteBook 830 G8",
+    "image": "images/guide/hp-elitebook-830-g8.jpg",
+    "imageAlt": "HP EliteBook 830 G8 の製品写真",
+    "imageCredit": "日本HP",
+    "imageSourceUrl": "https://jp.ext.hp.com/notebooks/business/elitebook_830_g8/",
+    "imageCheckedAt": "2026-11-19",
+    "imageKind": "manufacturer",
+    "cpu": "第11世代 Core i5 / i7 / 4C8T",
+    "memory": "2 SO-DIMM / 最大64GB",
+    "role": "持ち運び・管理端末",
+    "note": "小型でも増設しやすい点を評価。"
+  },
+  {
+    "name": "Surface Pro 7",
+    "image": "images/guide/surface-pro-7.png",
+    "imageAlt": "Microsoft Surface Pro 7 の製品画像",
+    "imageCredit": "Microsoft",
+    "imageSourceUrl": "https://support.microsoft.com/ja-jp/surface/models/surface-pro-7-specs-and-features",
+    "imageCheckedAt": "2026-11-19",
+    "imageKind": "manufacturer",
+    "cpu": "Core i7-1065G7 / 4C8T",
+    "memory": "最大16GB構成",
+    "role": "軽量な遠隔管理端末",
+    "note": "携帯性は強いが、メモリ増設前提では選ばない。"
+  },
+  {
+    "name": "Surface Book 3",
+    "image": "images/guide/surface-book-3.png",
+    "imageAlt": "Microsoft Surface Book 3 の製品画像",
+    "imageCredit": "Microsoft",
+    "imageSourceUrl": "https://support.microsoft.com/ja-jp/surface/models/surface-book-3-specs-and-features",
+    "imageCheckedAt": "2026-11-19",
+    "imageKind": "manufacturer",
+    "cpu": "Core i7-1065G7 / 4C8T",
+    "memory": "32GB構成あり",
+    "role": "GPUも使う作業端末",
+    "note": "性能は魅力。ただし中古構造リスクを織り込む。"
+  }
+]
