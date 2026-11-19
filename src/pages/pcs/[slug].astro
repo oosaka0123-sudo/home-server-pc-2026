@@ -13,7 +13,7 @@ const yahooUrl = pc.yahooQuery
   ? `https://shopping.yahoo.co.jp/search?p=${encodeURIComponent(pc.yahooQuery)}`
   : null;
 ---
-<BaseLayout title={`${pc.name} ${pc.cpu}｜自宅サーバーPC図鑑`} description={`${pc.name}（${pc.cpu}）を24時間自宅サーバー用途で確認。完成総額、4K60Hz、有線LAN、消費電力、追加パーツを整理します。`}>
+<BaseLayout title={`${pc.name} ${pc.cpu}｜自宅サーバーPC図鑑`} description={`${pc.name}（${pc.cpu}）を24時間自宅サーバー用途で確認。完成総額、4K60Hz、有線LAN、消費電力、追加パーツを整理します。`} socialImage={`${base}${pc.image}`} socialImageAlt={pc.imageAlt}>
   <header class="page-hero pc-detail-hero">
     <div>
       <p class="kicker">{pc.maker} / {pc.condition} / {dataLabel(pc.dataStatus)}</p>
