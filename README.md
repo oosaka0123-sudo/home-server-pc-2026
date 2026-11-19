@@ -33,3 +33,7 @@ npm run dev
 ```
 
 `npm run qa` は、PCデータ検証 → Astro build → 内部リンク検査をまとめて実行します。
+
+## PC写真
+
+PC写真は必須です。表示画像は `public/images/pcs/` と `public/images/guide/` に固定保存し、データ側にはローカル相対パス、出典、クレジット、画像確認日、画像種別を保持します。 `npm run qa` は画像ファイルの実在も検証します。

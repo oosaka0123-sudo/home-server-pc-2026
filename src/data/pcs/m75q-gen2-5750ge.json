@@ -22,8 +22,10 @@
   "sourceLabel": "販売中確認・運用想定",
   "note": "本体の標準HDMIは4K30Hz想定。REGZA 4K60Hz利用ではDP変換を完成総額に含める。",
   "yahooQuery": "ThinkCentre M75q Gen 2 Ryzen 7 PRO 5750GE 32GB 512GB",
-  "image": "https://download.lenovo.com/images/ProdImageDesktops/thinkcentre_m75q.jpg",
+  "image": "images/pcs/thinkcentre-m75q-gen2.jpg",
   "imageAlt": "Lenovo ThinkCentre M75q Gen 2 の製品写真",
   "imageCredit": "Lenovo",
-  "imageSourceUrl": "https://pcsupport.lenovo.com/jp/ja/products/desktops-and-all-in-ones/thinkcentre-m-series-desktops/thinkcentre-m75q-gen-2/11jj/11jjcto1ww"
+  "imageSourceUrl": "https://pcsupport.lenovo.com/jp/ja/products/desktops-and-all-in-ones/thinkcentre-m-series-desktops/thinkcentre-m75q-gen-2/11jj/11jjcto1ww",
+  "imageCheckedAt": "2026-11-19",
+  "imageKind": "manufacturer"
 }

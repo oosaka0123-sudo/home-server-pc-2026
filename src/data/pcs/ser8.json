@@ -22,8 +22,10 @@
   "sourceLabel": "新品販売価格確認",
   "note": "4K60Hz直結と性能は強いが、今回の完成総額10万円以内という主軸からは外れる。",
   "yahooQuery": "Beelink SER8 Ryzen 7 8845HS 32GB 1TB",
-  "image": "https://www.bee-link.com/cdn/shop/files/2_cdcbfcc1-2a7d-4028-a00c-aa921e600839_large.png?v=1752343503",
+  "image": "images/pcs/beelink-ser8.png",
   "imageAlt": "Beelink SER8 ミニPCの製品写真",
   "imageCredit": "Beelink",
-  "imageSourceUrl": "https://www.bee-link.com/products/beelink-ser8-8845hs"
+  "imageSourceUrl": "https://www.bee-link.com/products/beelink-ser8-8845hs",
+  "imageCheckedAt": "2026-11-19",
+  "imageKind": "manufacturer"
 }
