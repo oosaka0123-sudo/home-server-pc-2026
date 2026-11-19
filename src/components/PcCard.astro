@@ -5,6 +5,12 @@ const { pc, index = 1 } = Astro.props as { pc: Pc; index?: number };
 const base = import.meta.env.BASE_URL;
 ---
 <article class="pc-card" data-reveal>
+  <a class="pc-photo-link" href={`${base}pcs/${pc.slug}/`} aria-label={`${pc.name}の詳細を見る`}>
+    <figure class="pc-photo">
+      <img src={pc.image} alt={pc.imageAlt} width="800" height="600" loading="lazy" decoding="async" />
+      <figcaption>PHOTO: {pc.imageCredit}</figcaption>
+    </figure>
+  </a>
   <div class="pc-card-top">
     <span class="index-number">{String(index).padStart(2, '0')}</span>
     <div class:list={['status-chip', pc.budgetStatus]}>{budgetLabel(pc.budgetStatus)}</div>

@@ -21,5 +21,9 @@
   "checkedAt": "2026-10-02",
   "sourceLabel": "価格再調査中",
   "note": "5750GEより下位の比較候補。完成総額10万円以内になる販売個体を優先して掲載する。",
-  "yahooQuery": "ThinkCentre M75q Gen 2 Ryzen 7 PRO 4750GE 32GB 512GB"
+  "yahooQuery": "ThinkCentre M75q Gen 2 Ryzen 7 PRO 4750GE 32GB 512GB",
+  "image": "https://download.lenovo.com/images/ProdImageDesktops/thinkcentre_m75q.jpg",
+  "imageAlt": "Lenovo ThinkCentre M75q Gen 2 の製品写真",
+  "imageCredit": "Lenovo",
+  "imageSourceUrl": "https://pcsupport.lenovo.com/jp/ja/products/desktops-and-all-in-ones/thinkcentre-m-series-desktops/thinkcentre-m75q-gen-2/11jj/11jjcto1ww"
 }

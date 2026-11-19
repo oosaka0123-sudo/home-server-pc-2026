@@ -21,5 +21,9 @@
   "checkedAt": "2026-10-02",
   "sourceLabel": "中古販売価格確認",
   "note": "性能は魅力的だが、確認時点では完成総額10万円ルールを超えるため参考枠。",
-  "yahooQuery": "MINISFORUM UM780 XTX 32GB 1TB"
+  "yahooQuery": "MINISFORUM UM780 XTX 32GB 1TB",
+  "image": "https://www.minisforum.com/cdn/shop/files/1_83375d99-459d-4fe8-b5ea-afb4c3e6f994.jpg?v=1731310430",
+  "imageAlt": "MINISFORUM UM780 XTX ミニPCの製品写真",
+  "imageCredit": "MINISFORUM",
+  "imageSourceUrl": "https://www.minisforum.com/collections/ai-mini-pcs/products/elitemini-um780-xtx"
 }
