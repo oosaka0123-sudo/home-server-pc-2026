@@ -5,7 +5,7 @@ const dir = path.resolve('src/data/pcs');
 const files = fs.readdirSync(dir).filter((name) => name.endsWith('.json'));
 const allowedBudget = new Set(['within', 'over', 'research']);
 const allowedData = new Set(['measured', 'mixed', 'shop', 'research']);
-const required = ['slug','name','maker','condition','cpu','cores','threads','memoryGb','storageGb','lan','wifi','display4k60','budgetStatus','dataStatus','checkedAt','sourceLabel','note'];
+const required = ['slug','name','maker','condition','cpu','cores','threads','memoryGb','storageGb','lan','wifi','display4k60','budgetStatus','dataStatus','checkedAt','sourceLabel','note','image','imageAlt','imageCredit','imageSourceUrl'];
 const slugs = new Set();
 const errors = [];
 const warnings = [];
@@ -26,6 +26,8 @@ for (const file of files) {
   if (pc.storageGb < 512) errors.push(`${file}: storage below 512GB baseline`);
   if (pc.powerIdleW !== null && pc.powerIdleW <= 0) errors.push(`${file}: invalid powerIdleW`);
   if (pc.powerLoadW !== null && pc.powerLoadW <= 0) errors.push(`${file}: invalid powerLoadW`);
+  if (!/^https:\/\//.test(pc.image)) errors.push(`${file}: image must use https`);
+  if (!/^https:\/\//.test(pc.imageSourceUrl)) errors.push(`${file}: imageSourceUrl must use https`);
   if (pc.yahooQuery !== undefined && (typeof pc.yahooQuery !== 'string' || !pc.yahooQuery.trim())) {
     errors.push(`${file}: yahooQuery must be a non-empty string when present`);
   }
