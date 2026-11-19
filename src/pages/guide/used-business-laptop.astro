@@ -1,63 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-
-const candidates = [
-  {
-    name: 'Dell Latitude 5420',
-    image: 'https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/dell-client-products/notebooks/latitude-notebooks/14-5420/global-spi/ng/notebook-latitude-5420-nt-relsize-500-ng.psd?fmt=jpg&hei=191&wid=500',
-    imageAlt: 'Dell Latitude 5420 の製品写真',
-    credit: 'Dell',
-    source: 'https://www.dell.com/support/product-details/ja-jp/product/latitude-5420-laptop',
-    cpu: 'Core i7-1185G7 / 4C8T',
-    memory: '2 SO-DIMM / 最大64GB',
-    role: '管理・ブラウザ・CLI作業',
-    note: '増設性が強み。状態とバッテリーを重視。'
-  },
-  {
-    name: 'ThinkPad T14 Gen 2',
-    image: 'https://p3-ofp.static.pub/fes/cms/2022/06/13/c70uc8tdc9jq9bo4x41dphqfqusowi992268.png?height=584&width=584',
-    imageAlt: 'Lenovo ThinkPad T14 Gen 2 AMD の製品写真',
-    credit: 'Lenovo',
-    source: 'https://www.lenovo.com/jp/ja/p/laptops/thinkpad/thinkpad-t-series/22tpt14t4a1/22tpt14t4a1',
-    cpu: 'Ryzen 7 PRO 5850Uなら 8C16T',
-    memory: 'オンボード＋SO-DIMM',
-    role: 'サブ機兼軽サーバー候補',
-    note: 'AMD 5850U構成は別格。構成違いに注意。'
-  },
-  {
-    name: 'HP EliteBook 830 G8',
-    image: 'https://jp.ext.hp.com/content/dam/jp-ext-hp-com/jp/ja/ec/notebooks/business/elitebook_830_g8/images/view2_mobile.jpg',
-    imageAlt: 'HP EliteBook 830 G8 の製品写真',
-    credit: '日本HP',
-    source: 'https://jp.ext.hp.com/notebooks/business/elitebook_830_g8/',
-    cpu: '第11世代 Core i5 / i7 / 4C8T',
-    memory: '2 SO-DIMM / 最大64GB',
-    role: '持ち運び・管理端末',
-    note: '小型でも増設しやすい点を評価。'
-  },
-  {
-    name: 'Surface Pro 7',
-    image: 'https://support.microsoft.com/ja-jp/surface/media/4202347e-f4f7-0d30-87f2-966649fb1bef.png',
-    imageAlt: 'Microsoft Surface Pro 7 の製品画像',
-    credit: 'Microsoft',
-    source: 'https://support.microsoft.com/ja-jp/surface/models/surface-pro-7-specs-and-features',
-    cpu: 'Core i7-1065G7 / 4C8T',
-    memory: '最大16GB構成',
-    role: '軽量な遠隔管理端末',
-    note: '携帯性は強いが、メモリ増設前提では選ばない。'
-  },
-  {
-    name: 'Surface Book 3',
-    image: 'https://support.microsoft.com/ja-jp/surface/media/d1fe3e2e-9261-fdba-6c36-81fe9dec4603.png',
-    imageAlt: 'Microsoft Surface Book 3 の製品画像',
-    credit: 'Microsoft',
-    source: 'https://support.microsoft.com/ja-jp/surface/models/surface-book-3-specs-and-features',
-    cpu: 'Core i7-1065G7 / 4C8T',
-    memory: '32GB構成あり',
-    role: 'GPUも使う作業端末',
-    note: '性能は魅力。ただし中古構造リスクを織り込む。'
-  }
-];
+import candidates from '../../data/used-laptops.json';
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout
@@ -96,8 +40,8 @@ const candidates = [
       {candidates.map((pc) => (
         <article class="used-laptop-card">
           <figure>
-            <img src={pc.image} alt={pc.imageAlt} width="584" height="438" loading="lazy" decoding="async" />
-            <figcaption>画像: <a href={pc.source} target="_blank" rel="noopener noreferrer">{pc.credit}</a></figcaption>
+            <img src={`${base}${pc.image}`} alt={pc.imageAlt} width="584" height="438" loading="lazy" decoding="async" />
+            <figcaption>画像: <a href={pc.imageSourceUrl} target="_blank" rel="noopener noreferrer">{pc.credit}</a></figcaption>
           </figure>
           <div class="used-laptop-copy">
             <h3>{pc.name}</h3>
