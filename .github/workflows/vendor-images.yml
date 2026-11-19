@@ -29,7 +29,7 @@ jobs:
           curl -fL --retry 3 --connect-timeout 20 -A "Mozilla/5.0" "https://jp.ext.hp.com/content/dam/jp-ext-hp-com/jp/ja/ec/notebooks/business/elitebook_830_g8/images/view2_mobile.jpg" -o public/images/guide/hp-elitebook-830-g8.jpg
           curl -fL --retry 3 --connect-timeout 20 -A "Mozilla/5.0" "https://support.microsoft.com/ja-jp/surface/media/4202347e-f4f7-0d30-87f2-966649fb1bef.png" -o public/images/guide/surface-pro-7.png
           curl -fL --retry 3 --connect-timeout 20 -A "Mozilla/5.0" "https://support.microsoft.com/ja-jp/surface/media/d1fe3e2e-9261-fdba-6c36-81fe9dec4603.png" -o public/images/guide/surface-book-3.png
-          find public/images -type f -maxdepth 3 -print0 | xargs -0 -I{} sh -c 'test "$(wc -c < "{}")" -gt 10000 || { echo "Image too small: {}"; exit 1; }'
+          find public/images -type f -maxdepth 3 -print0 | xargs -0 -I{} sh -c 'test "$(wc -c < "{}")" -gt 1000 || { echo "Image too small: {}"; exit 1; }; file --mime-type -b "{}" | grep -q "^image/" || { echo "Not an image: {}"; exit 1; }'
       - name: Commit vendored images
         shell: bash
         run: |
