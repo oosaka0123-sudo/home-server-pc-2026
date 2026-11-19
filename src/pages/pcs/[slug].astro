@@ -13,10 +13,16 @@ const yahooUrl = pc.yahooQuery
   : null;
 ---
 <BaseLayout title={`${pc.name} ${pc.cpu}｜自宅サーバーPC図鑑`} description={`${pc.name}（${pc.cpu}）を24時間自宅サーバー用途で確認。完成総額、4K60Hz、有線LAN、消費電力、追加パーツを整理します。`}>
-  <header class="page-hero">
-    <p class="kicker">{pc.maker} / {pc.condition} / {dataLabel(pc.dataStatus)}</p>
-    <h1>{pc.name}</h1>
-    <p>{pc.cpu}。ランキングではなく、完成総額10万円以内という基準と、実際の運用条件に照らして整理します。</p>
+  <header class="page-hero pc-detail-hero">
+    <div>
+      <p class="kicker">{pc.maker} / {pc.condition} / {dataLabel(pc.dataStatus)}</p>
+      <h1>{pc.name}</h1>
+      <p>{pc.cpu}。ランキングではなく、完成総額10万円以内という基準と、実際の運用条件に照らして整理します。</p>
+    </div>
+    <figure class="detail-photo">
+      <img src={pc.image} alt={pc.imageAlt} width="1000" height="750" decoding="async" fetchpriority="high" />
+      <figcaption>画像: <a href={pc.imageSourceUrl} target="_blank" rel="noopener noreferrer">{pc.imageCredit}</a></figcaption>
+    </figure>
   </header>
   <section class="section">
     <div class="detail-grid">
@@ -45,6 +51,7 @@ const yahooUrl = pc.yahooQuery
           <div class="spec-row"><dt>状態</dt><dd>{pc.sourceLabel}</dd></div>
           <div class="spec-row"><dt>本体価格</dt><dd>{formatYen(pc.bodyPriceJpy)}</dd></div>
           <div class="spec-row"><dt>追加費用</dt><dd>{formatYen(pc.extrasJpy)}</dd></div>
+          <div class="spec-row"><dt>画像出典</dt><dd><a href={pc.imageSourceUrl} target="_blank" rel="noopener noreferrer">{pc.imageCredit}</a></dd></div>
         </dl>
       </aside>
     </div>
