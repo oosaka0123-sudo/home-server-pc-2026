@@ -25,6 +25,8 @@ export type Pc = {
   imageAlt: string;
   imageCredit: string;
   imageSourceUrl: string;
+  imageCheckedAt: string;
+  imageKind: 'manufacturer' | 'original';
   yahooQuery?: string;
 };
 
