@@ -20,7 +20,7 @@ GitHub Pages: https://oosaka0123-sudo.github.io/home-server-pc-2026/
 
 Astro / JSON data / GitHub Actions / GitHub Pages
 
-Yahoo!ショッピングの購入導線はValueCommerce LinkSwitchを利用し、実PIDはGitHub Actions Secretからデプロイ時に注入します。公開コードへ実IDを固定しません。
+Yahoo!ショッピングの購入導線はValueCommerce LinkSwitchを利用します。LinkSwitch PIDはブラウザに配信される公開識別子としてGitHub Actionsでruntime設定を生成し、PC詳細ページだけでPR表記付きCTAを有効化します。
 
 PC情報は `src/data/pcs/*.json` の1機種1ファイルで管理します。
 
@@ -32,8 +32,15 @@ npm run qa
 npm run dev
 ```
 
-`npm run qa` は、PCデータ検証 → Astro build → 内部リンク検査をまとめて実行します。
+`npm run qa` は、PCデータ検証 → Astro build → 内部リンク検査 → アフィリエイト検査 → SEO検査をまとめて実行します。
 
 ## PC写真
 
 PC写真は必須です。表示画像は `public/images/pcs/` と `public/images/guide/` に固定保存し、データ側にはローカル相対パス、出典、クレジット、画像確認日、画像種別を保持します。 `npm run qa` は画像ファイルの実在も検証します。
+
+## SEO / Webmaster verification
+
+- Google Search Console verification file: `public/google10b52f5d3ce8d9fd.html`
+- Bing Webmaster Tools verification file: `public/BingSiteAuth.xml`
+- robots.txt は Astro が生成する `sitemap-index.xml` を参照します。
+- `npm run check:seo` で verification files / sitemap / canonical / JSON-LD / OGP / Twitter Card を検証します。
