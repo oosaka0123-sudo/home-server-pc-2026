@@ -1,6 +1,6 @@
 # 自宅サーバーPC図鑑｜HANDOFF
 
-最終更新: 2026-11-19
+最終更新: 2026-11-20
 
 ## 正式情報
 
@@ -120,8 +120,8 @@ GitHub Copilot CLI独立レビュー:
 
 - Yahoo!ショッピングの購入導線はPC詳細ページだけに置く。
 - 公開コードには通常のYahoo!ショッピング検索URLだけを持たせる。
-- ValueCommerce LinkSwitchの実PIDはGitHub Actions Secret `VALUECOMMERCE_LINKSWITCH_PID` からデプロイ時に注入する。
-- Secret未設定時は購入CTAを表示しない。
+- ValueCommerce LinkSwitchのPIDはブラウザへ配信される公開識別子なので、GitHub Actionsで公開設定として生成する。
+- LinkSwitchが有効なときだけ購入CTAを表示する。
 - PR表記を購入導線の近くに表示する。
 - アフィリエイト提携や報酬額を比較順位・予算判定・実測評価に使わない。
 - プライバシーポリシーで広告・Cookie等の外部サービス利用方針を明示する。
