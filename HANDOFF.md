@@ -78,6 +78,7 @@ Mobile は独立設計し、右上44pxハンバーガー + Full Screen Menu。
 2. Astro build
 3. 内部リンク検査
 4. アフィリエイト検査（LinkSwitch runtime / PR表記 / Yahoo! CTA）
+5. SEO検査（verification files / sitemap / canonical / JSON-LD / OGP）
 
 2026-10-07確認:
 - 12 pages build: PASS
@@ -127,14 +128,30 @@ GitHub Copilot CLI独立レビュー:
 - アフィリエイト提携や報酬額を比較順位・予算判定・実測評価に使わない。
 - プライバシーポリシーで広告・Cookie等の外部サービス利用方針を明示する。
 
-## 次の優先順位
+## 現在の完成状態
 
-1. PRのCI / build / link checkを確認してmainへ反映
-2. GitHub Pages本番確認
-3. 4750GEの価格・総額調査
-4. 完成総額10万円以内の現行候補を追加
-5. 実機購入後、消費電力・温度・CLI・Chrome・4K60Hz・SSHを実測
-6. Search Console / Bing登録は本番安定後
+2026-11-20時点で、公開サイトの通常リリース範囲は完成。
+
+完了:
+1. Astro / GitHub Pages本番公開
+2. PC一覧・詳細・比較・導入ガイド・中古ノートガイド
+3. PC写真必須化・ローカル固定
+4. Yahoo!ショッピング / ValueCommerce LinkSwitch本番稼働
+5. アフィリエイト漏れをCIで自動検査
+6. 4750GE / 5750GE価格再調査
+7. GMKtec NucBox K6を10万円以内候補として追加
+8. Google / Bing所有権確認ファイル配置
+9. robots / sitemap / canonical / JSON-LD / OGP整備
+10. SEO資産をCIで自動検査
+
+外部アカウント側の状態:
+- Google Search Console: verification fileは本番配置済み。PC03 Operaは未ログインのため、管理画面上の登録完了状態は未確認。
+- Bing Webmaster Tools: BingSiteAuth.xmlは本番配置済み。PC03 Operaは未ログインのため、管理画面上の登録完了状態は未確認。
+
+今後は新機能開発ではなく運用フェーズ:
+- 実機入手時の消費電力・温度・CLI・Chrome・4K60Hz・SSH実測
+- 中古価格の定期更新
+- 条件を満たす新規PC候補追加
 
 ランキングは実測データが十分蓄積するまで作らない。
 
