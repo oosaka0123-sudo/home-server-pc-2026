@@ -79,6 +79,7 @@ Mobile は独立設計し、右上44pxハンバーガー + Full Screen Menu。
 3. 内部リンク検査
 4. アフィリエイト検査（LinkSwitch runtime / PR表記 / Yahoo! CTA）
 5. SEO検査（verification files / sitemap / canonical / JSON-LD / OGP）
+6. 依存脆弱性検査（npm audit / moderate以上）
 
 2026-10-07確認:
 - 12 pages build: PASS
@@ -143,6 +144,7 @@ GitHub Copilot CLI独立レビュー:
 8. Google / Bing所有権確認ファイル配置
 9. robots / sitemap / canonical / JSON-LD / OGP整備
 10. SEO資産をCIで自動検査
+11. npm audit脆弱性0件へ更新し、CIへセキュリティ検査を追加
 
 外部アカウント側の状態:
 - Google Search Console: verification fileは本番配置済み。PC03 Operaは未ログインのため、管理画面上の登録完了状態は未確認。
