@@ -42,6 +42,8 @@ function walk(dir) {
 walk(dist);
 
 for (const file of htmlFiles) {
+  const rel = path.relative(dist, file).replaceAll('\\\\', '/');
+  if (/^google[0-9a-f]+\.html$/i.test(rel)) continue;
   const html = fs.readFileSync(file, 'utf8');
   if (!html.includes('<link rel="canonical"')) errors.push(`${path.relative(dist,file)}: canonical missing`);
   if (!html.includes('application/ld+json')) errors.push(`${path.relative(dist,file)}: structured data missing`);
