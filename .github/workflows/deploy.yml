@@ -41,6 +41,8 @@ jobs:
         run: npm run check:links
       - name: Check affiliate integration
         run: npm run check:affiliate
+      - name: Check SEO integration
+        run: npm run check:seo
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
