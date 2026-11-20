@@ -39,6 +39,8 @@ jobs:
         run: npm run build
       - name: Check internal links
         run: npm run check:links
+      - name: Check affiliate integration
+        run: npm run check:affiliate
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
