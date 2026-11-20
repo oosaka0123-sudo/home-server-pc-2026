@@ -9,9 +9,11 @@
     "validate:data": "node scripts/validate-data.mjs",
     "build": "astro build",
     "check:links": "node scripts/check-links.mjs",
-    "qa": "npm run validate:data && npm run build && npm run check:links && npm run check:affiliate",
+    "qa": "npm run validate:data && npm run build && npm run check:links && npm run check:affiliate && npm run check:seo && npm run check:security",
     "preview": "astro preview",
-    "check:affiliate": "node scripts/check-affiliate.mjs"
+    "check:affiliate": "node scripts/check-affiliate.mjs",
+    "check:seo": "node scripts/check-seo.mjs",
+    "check:security": "npm audit --audit-level=moderate"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
