@@ -7,7 +7,7 @@ const files = fs.readdirSync(pcDir).filter((name) => name.endsWith('.json'));
 const allowedBudget = new Set(['within', 'over', 'research']);
 const allowedData = new Set(['measured', 'mixed', 'shop', 'research']);
 const allowedImageKind = new Set(['manufacturer', 'original']);
-const required = ['slug','name','maker','condition','cpu','cores','threads','memoryGb','storageGb','lan','wifi','display4k60','budgetStatus','dataStatus','checkedAt','sourceLabel','note','image','imageAlt','imageCredit','imageSourceUrl','imageCheckedAt','imageKind'];
+const required = ['slug','name','maker','condition','cpu','cores','threads','memoryGb','storageGb','lan','wifi','display4k60','budgetStatus','dataStatus','checkedAt','sourceLabel','note','image','imageAlt','imageCredit','imageSourceUrl','imageCheckedAt','imageKind','yahooQuery'];
 const slugs = new Set();
 const errors = [];
 const warnings = [];
@@ -45,8 +45,8 @@ for (const file of files) {
   if (pc.powerIdleW !== null && pc.powerIdleW <= 0) errors.push(`${file}: invalid powerIdleW`);
   if (pc.powerLoadW !== null && pc.powerLoadW <= 0) errors.push(`${file}: invalid powerLoadW`);
   validateLocalImage(file, pc.image, pc.imageCheckedAt, pc.imageKind, pc.imageSourceUrl);
-  if (pc.yahooQuery !== undefined && (typeof pc.yahooQuery !== 'string' || !pc.yahooQuery.trim())) {
-    errors.push(`${file}: yahooQuery must be a non-empty string when present`);
+  if (typeof pc.yahooQuery !== 'string' || !pc.yahooQuery.trim()) {
+    errors.push(`${file}: yahooQuery is required and must be non-empty`);
   }
 
   if ([pc.bodyPriceJpy, pc.extrasJpy, pc.totalJpy].every(Number.isFinite)) {

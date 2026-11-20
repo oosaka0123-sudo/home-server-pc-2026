@@ -77,6 +77,7 @@ Mobile は独立設計し、右上44pxハンバーガー + Full Screen Menu。
 1. PCデータ検証
 2. Astro build
 3. 内部リンク検査
+4. アフィリエイト検査（LinkSwitch runtime / PR表記 / Yahoo! CTA）
 
 2026-10-07確認:
 - 12 pages build: PASS
@@ -147,3 +148,9 @@ GitHub Copilot CLI独立レビュー:
 - 画像が不明確・低解像度・型番違いの場合は掲載しない。
 - `npm run qa` は画像メタデータだけでなく、ローカル画像ファイルの実在と最低サイズも検証する。
 - 中古ノート候補は `src/data/used-laptops.json` で一元管理する。
+
+## アフィリエイトQA（2026-11-20追加）
+
+- すべてのメインPCに `yahooQuery` を必須化する。
+- build後に `npm run check:affiliate` を実行し、LinkSwitch runtime有効、数値PID、各PC詳細のPR表記、Yahoo!ショッピングCTA、`rel="sponsored nofollow noopener"` を検証する。
+- 新規PC追加時にYahoo!導線を入れ忘れるとCIを失敗させる。
