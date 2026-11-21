@@ -150,7 +150,7 @@ GitHub Copilot CLI独立レビュー:
 
 外部アカウント側の状態:
 - Google Search Console: URLプレフィックスプロパティ `https://oosaka0123-sudo.github.io/home-server-pc-2026/` は登録済み。2026-11-21に「確認済み所有者」をPC03 Operaで確認。ページレポートは登録済み1 / 未登録0。旧送信 `/sitemap.xml` は2026-10-10送信のまま「取得できませんでした」表示だが、現在は `/sitemap.xml` と `/sitemap-index.xml` の両方をrobots.txtへ明示し、ファイル自体の本番取得も確認済み。
-- Bing Webmaster Tools: `BingSiteAuth.xml` は本番配置済み。管理画面はMicrosoftアカウント未ログインのため登録状態は未確認。代替としてMicrosoft推奨のIndexNowをGitHub Pagesデプロイ後に自動送信する。
+- Bing Webmaster Tools: 2026-11-22にPC03 Operaで `https://oosaka0123-sudo.github.io/home-server-pc-2026/` の登録済み状態を確認。Search Performanceで表示回数を取得でき、`sitemap.xml` は Sitemap Index / Status: Success / URLs discovered: 1。IndexNowはGitHub Pagesデプロイ後に自動送信し、13 URLのHTTP 202受理も確認済み。
 
 今後は新機能開発ではなく運用フェーズ:
 - 実機入手時の消費電力・温度・CLI・Chrome・4K60Hz・SSH実測
