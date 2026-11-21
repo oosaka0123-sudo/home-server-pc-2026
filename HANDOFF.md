@@ -1,6 +1,6 @@
 # 自宅サーバーPC図鑑｜HANDOFF
 
-最終更新: 2026-11-20
+最終更新: 2026-11-21
 
 ## 正式情報
 
@@ -145,10 +145,12 @@ GitHub Copilot CLI独立レビュー:
 9. robots / sitemap / canonical / JSON-LD / OGP整備
 10. SEO資産をCIで自動検査
 11. npm audit脆弱性0件へ更新し、CIへセキュリティ検査を追加
+12. Google Search Consoleの登録・所有権確認を実確認
+13. IndexNowをデプロイ後に自動送信し、Bing等への更新通知を自動化
 
 外部アカウント側の状態:
-- Google Search Console: verification fileは本番配置済み。PC03 Operaは未ログインのため、管理画面上の登録完了状態は未確認。
-- Bing Webmaster Tools: BingSiteAuth.xmlは本番配置済み。PC03 Operaは未ログインのため、管理画面上の登録完了状態は未確認。
+- Google Search Console: URLプレフィックスプロパティ `https://oosaka0123-sudo.github.io/home-server-pc-2026/` は登録済み。2026-11-21に「確認済み所有者」をPC03 Operaで確認。ページレポートは登録済み1 / 未登録0。旧送信 `/sitemap.xml` は2026-10-10送信のまま「取得できませんでした」表示だが、現在は `/sitemap.xml` と `/sitemap-index.xml` の両方をrobots.txtへ明示し、ファイル自体の本番取得も確認済み。
+- Bing Webmaster Tools: `BingSiteAuth.xml` は本番配置済み。管理画面はMicrosoftアカウント未ログインのため登録状態は未確認。代替としてMicrosoft推奨のIndexNowをGitHub Pagesデプロイ後に自動送信する。
 
 今後は新機能開発ではなく運用フェーズ:
 - 実機入手時の消費電力・温度・CLI・Chrome・4K60Hz・SSH実測
