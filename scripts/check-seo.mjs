@@ -8,7 +8,8 @@ const mustExist = [
   'sitemap-index.xml',
   'BingSiteAuth.xml',
   'google10b52f5d3ce8d9fd.html',
-  'og-default.png'
+  'og-default.png',
+  'fca43398db58ad727cf81fd07b32c6d1.txt'
 ];
 
 for (const rel of mustExist) {
@@ -18,8 +19,11 @@ for (const rel of mustExist) {
 const robotsPath = path.join(dist, 'robots.txt');
 if (fs.existsSync(robotsPath)) {
   const robots = fs.readFileSync(robotsPath, 'utf8');
+  if (!robots.includes('Sitemap: https://oosaka0123-sudo.github.io/home-server-pc-2026/sitemap.xml')) {
+    errors.push('robots.txt legacy sitemap URL is missing');
+  }
   if (!robots.includes('Sitemap: https://oosaka0123-sudo.github.io/home-server-pc-2026/sitemap-index.xml')) {
-    errors.push('robots.txt sitemap URL is incorrect');
+    errors.push('robots.txt sitemap-index URL is missing');
   }
 }
 
